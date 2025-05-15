@@ -1,0 +1,450 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Catalogue';
+    src: url('fonts/Lineto_Catalogue_Regular.ttf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body, html {
+    font-family: 'Catalogue', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Updated Header Styles - now 50% width like the info panel but on the left side */
+header {
+    background-color: #ffffff;
+    color: rgb(62, 62, 62);
+    padding: 1rem;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: 'Catalogue', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* Hide filter buttons */
+.overlay-toggles {
+    display: none;
+}
+
+/* Main Content Layout - Swapped positions */
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Map is now on the right side */
+#map-container {
+    position: fixed;
+    right: 0; /* Changed from left to right */
+    width: 50%;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Info panel is now on the left side */
+#info-panel {
+    width: 50%;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+    border-right: 1px solid #303030; /* Changed from border-left to border-right */
+    padding: 20px;
+    transition: transform 0.3s;
+    position: absolute;
+    left: 0; /* Changed from right to left */
+    top: 0;
+    height: 100%;
+}
+
+/* Simplified info content styles */
+#info-content {
+    padding-bottom: 2rem;
+    position: relative;  /* Added to make positioning work properly */
+}
+
+#info-content h2 {
+    /* margin-bottom: 1rem; */
+    color: #303030;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Regular paragraph styling for landing page */
+#info-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    text-indent: 0px;
+}
+
+#transcript-details {
+    font-size: 14.4px;
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 1.6;
+    display: block;
+    text-align: justify;
+}
+
+/* Person info styling - fixed header with extended top, full width, and right border */
+.person-info {
+    font-family: 'Catalogue';
+    font-weight: medium;
+    margin-bottom: .1rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px dotted #303030;
+    border-right: 1px solid #303030;  /* Changed from left to right border */
+    position: fixed;
+    background-color: #f8f9fa;
+    width: 50%;  /* Set to 50% to match the info-panel width */
+    z-index: 10;
+    top: 0;  /* Extend all the way to the top of the container */
+    left: 0;  /* Changed from right to left alignment */
+    padding-top: 20px;  /* Match the top padding of info-panel */
+    padding-right: 20px;  /* Match the right padding of info-panel */
+    padding-left: 20px;  /* Match the left padding of info-panel */
+    margin: 0;  /* Reset any margin */
+}
+
+.person-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.1rem;
+}
+
+.person-address {
+    font-size: .9rem;
+    font-weight: medium;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: #303030;
+    margin-top: .1rem;
+    margin-bottom: 0.5rem;  /* Reduced from 2rem for less space */
+}
+
+/* Content container for the dialogue table */
+.dialogue-container {
+    padding-top: 100px;  /* Increased to accommodate larger header */
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* New dialogue table styling */
+.dialogue-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+/* Speaker column */
+.dialogue-speaker {
+    width: 20%;
+    vertical-align: top;
+    padding: 8px 10px 8px 0;
+    font-weight: bold;
+    color: #303030;
+}
+
+/* Dialogue content column */
+.dialogue-content {
+    width: 70%;
+    vertical-align: top;
+    padding: 8px 0 8px 0;
+    color: #303030;
+}
+
+/* Alternating row colors for better readability */
+.dialogue-row:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.dialogue-row:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+/* Customize map popup */
+.leaflet-popup-content-wrapper {
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 0;
+    padding: 15px;
+}
+
+.popup-title {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-family: 'Catalogue';
+    color: #555;
+}
+
+.popup-address {
+    font-size: .75rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #555;
+}
+
+.popup-click {
+    font-size: 0.8rem;
+    color: #1e1e1e;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Hide popup close button (additional CSS to ensure it's gone) */
+.leaflet-popup-close-button {
+    display: none !important;
+}
+
+/* Toggle Control Styles - updated for bottom right positioning */
+.overlay-control {
+    background: white;
+    border: 1px solid #303030;
+    padding: 7px 15px;
+    border-radius: 4px;
+    font-family: 'Catalogue', sans-serif;
+    font-size: 14px;
+    width: 100%; /* Fixed width for all overlay controls */
+}
+
+/* Bottom right specific adjustments */
+.leaflet-bottom.leaflet-right .overlay-control {
+    margin-bottom: 10px;  /* Add space above the attribution control */
+    margin-right: 10px;   /* Add space from the right edge */
+}
+
+/* Stack controls vertically in the correct order */
+.leaflet-bottom.leaflet-right .leaflet-control {
+    clear: both;
+    margin-top: -2px;
+}
+
+/* Make sure attribution doesn't overlap with our controls */
+.leaflet-control-attribution {
+    margin-top: 10px !important;
+    clear: both;
+}
+
+.overlay-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.toggle-label {
+    flex-grow: 0; /* Don't grow */
+    flex-shrink: 0; /* Don't shrink */
+    width: 230px; /* Fixed width for all labels */
+    color: #303030;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #303030;
+    border-radius: 24px;
+    width: 48px;
+    height: 23px;
+}
+
+/* Hide default HTML checkbox */
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f0f0f0;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    border: 1px solid #303030;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.3); */
+}
+
+input:checked + .toggle-slider {
+    background-color: #ddd;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+/* Top menu styling */
+#bottom-menu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #303030;
+    border: 1px solid #303030;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Catalogue', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-button.active {
+    background-color: #303030;
+    color: #ffffff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column-reverse;
+    }
+    
+    #map-container {
+        position: relative;
+        width: 100%;
+        height: 60%;
+        /* No need to change right/left as it takes full width on mobile */
+    }
+    
+    #info-panel {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        border-right: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #303030;
+        padding-top: 20px;
+        /* No need to change right/left as it takes full width on mobile */
+    }
+    
+    header {
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    /* Fixed header styling for mobile */
+    .person-info {
+        width: 100%;  /* Full width on mobile */
+        position: relative;  /* Change to relative on mobile */
+        left: auto;  /* Reset left positioning */
+        top: auto;  /* Reset top positioning */
+        border-right: none; /* Remove right border on mobile */
+        box-shadow: none;  /* Remove box shadow on mobile */
+        margin-top: -10px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        background-color: #f8f9fa;
+        z-index: 5;
+    }
+    
+    /* Since header is now relative, adjust dialogue container padding */
+    .dialogue-container {
+        padding-top: 10px;
+    }
+    
+    /* Adjust dialogue table for mobile */
+    .dialogue-speaker {
+        width: 30%;
+    }
+    
+    .dialogue-content {
+        width: 70%;
+    }
+
+    /* Adjust toggle control for mobile */
+    .overlay-control {
+        margin-bottom: -4px;
+    }
+    
+    .toggle-switch {
+        width: 45px;
+        height: 24px;
+    }
+    
+    .toggle-slider:before {
+        height: 16px;
+        width: 16px;
+    }
+    
+    input:checked + .toggle-slider:before {
+        transform: translateX(20px);
+    }
+    
+    #bottom-menu {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        border-top: 1px solid #303030;
+    }
+    
+    /* Mobile-specific adjustments for bottom-right controls */
+    .leaflet-bottom.leaflet-right .overlay-control {
+        margin-bottom: 30px;  /* More space on mobile */
+    }
+    
+    .leaflet-bottom.leaflet-right {
+        max-width: 90%;  /* Prevent controls from being too wide on mobile */
+    }
+
+    
+}
