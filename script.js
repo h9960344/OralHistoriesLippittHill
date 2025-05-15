@@ -316,6 +316,44 @@ function createToggleControl(position, label, id, overlay) {
     }, 200);
 }
 
+// Function to handle menu positioning for mobile devices
+function handleMenuPositioning() {
+    const bottomMenu = document.getElementById('bottom-menu');
+    
+    if (window.innerWidth <= 768) {
+        // Mobile layout adjustments
+        // Position menu in the center of the screen at the top for mobile view
+        if (bottomMenu) {
+            // Clear any existing positioning
+            bottomMenu.style.inset = null;
+            
+            // Set explicit positioning properties for top-center placement
+            bottomMenu.style.position = 'fixed';
+            bottomMenu.style.top = '30px';
+            bottomMenu.style.left = '50%';
+            bottomMenu.style.transform = 'translateX(-50%)';
+            bottomMenu.style.bottom = 'auto';
+            bottomMenu.style.right = 'auto';
+            bottomMenu.style.width = 'auto';
+            bottomMenu.style.padding = '0';
+            bottomMenu.style.zIndex = '1000';
+            bottomMenu.style.display = 'flex';
+            bottomMenu.style.gap = '10px';
+            bottomMenu.style.backgroundColor = 'transparent';
+        }
+    } else {
+        // Desktop layout - top right corner
+        if (bottomMenu) {
+            bottomMenu.style.position = 'fixed';
+            bottomMenu.style.top = '20px';
+            bottomMenu.style.right = '20px';
+            bottomMenu.style.left = 'auto';
+            bottomMenu.style.transform = 'none';
+            bottomMenu.style.zIndex = '100';
+        }
+    }
+}
+
 // Load everything when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Create the street and area overlays
@@ -333,5 +371,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load the map data
     loadMapData();
 
+    // Handle menu positioning initially
+    handleMenuPositioning();
     
+    // Add event listener for window resize to update menu positioning
+    window.addEventListener('resize', handleMenuPositioning);
 });

@@ -1,6 +1,6 @@
 /* Specific styles for the scrolling images page */
 
-/* Make text panel scrollable */
+/* Layout */
 #text-panel {
     width: 50%;
     background-color: #f8f9fa;
@@ -13,10 +13,26 @@
     height: 100%;
 }
 
-/* Text content styling */
+#image-container {
+    position: fixed;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#image-display {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Text styling */
 #text-content {
     padding-bottom: 2rem;
-
 }
 
 #text-content h2 {
@@ -35,8 +51,8 @@
 }
 
 .text-section {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    margin-bottom: 0;
+    padding-bottom: 0;
     margin-left: 5%;
 }
 
@@ -49,39 +65,21 @@
     color: #303030;
 }
 
-/* Image container styling */
-#image-container {
-    position: fixed;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#image-display {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
 /* Image styling */
 .image {
-    position: absolute; /* This is necessary */
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;      /* Take up full width of container */
-    height: 100%;     /* Take up full height of container */
+    width: 100%;
+    height: 100%;
     opacity: 0;
     transition: opacity .5s ease-in-out;
-    display: flex;    /* Changed to flex to center the child image */
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Clip anything that extends beyond */
+    overflow: hidden;
 }
 
 .image.active {
@@ -90,90 +88,37 @@
 }
 
 .image img {
-    position: relative;
     max-width: 140%;
     max-height: 140%;
-    object-fit: cover; /* Changed from contain to cover */
-    transform: translate(-50%, -50%); /* Center the image */
+    object-fit: cover;
+    transform: translate(-50%, -50%);
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 100%; /* Ensure it's at least as wide as the container */
-    min-height: 100%; /* Ensure it's at least as tall as the container */
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .image-caption {
-    position: absolute; /* Position absolutely within the .image container */
-    bottom: 50px;       /* Position from the bottom edge (adjust as needed) */
-    left: 50%;          /* Center horizontally */
-    transform: translateX(-50%); /* Center adjustment */
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 5px 10px;
     background-color: white;
     font-size: 14px;
-    z-index: 1000;      /* Ensure it stays above the image */
+    z-index: 1000;
     color: #303030;
     text-align: center;
     max-width: 100%;
     font-family: 'Catalogue', sans-serif;
 }
 
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column-reverse;
-    }
-    
-    #text-panel {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-top: 1px solid #ddd;
-    }
-    
-    #image-container {
-        position: relative;
-        width: 100%;
-        height: 50vh;
-    }
-    
-    .image img {
-        max-height: 70%;
-    }
-    
-    /* Adjust section margins for mobile */
-    .text-section {
-        margin-bottom: 30px;
-        padding-bottom: 15px;
-    }
-    
-    #text-content h2 {
-        font-size: 20px;
-    }
-    
-    #text-content h3 {
-        font-size: 16px;
-        margin-top: 20px;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    
-    /* Bottom menu mobile adjustments */
-    #bottom-menu {
-        position: relative;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 15px;
-        border-top: 1px solid #303030;
-    }
-}
-
-/* Bottom menu styling */
+/* Navigation */
 #bottom-menu {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     display: flex;
     gap: 10px;
     z-index: 100;
@@ -199,4 +144,58 @@
 .menu-button.active {
     background-color: #303030;
     color: #ffffff;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column-reverse;
+    }
+    
+    #text-panel {
+        position: relative;
+        width: 100%;
+        padding-top: 60px;
+        height: auto;
+        border-right: none;
+        border-top: 1px solid #ddd;
+    }
+    
+    #image-container {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+    }
+    
+    .image img {
+        max-height: 70%;
+    }
+    
+    .text-section {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+    
+    #text-content h2 {
+        font-size: 20px;
+        text-align: left;
+    }
+    
+    #text-content h3 {
+        font-size: 16px;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    #bottom-menu {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: auto;
+        padding: 0;
+        border-top: none;
+        margin-top: 0;
+        z-index: 1000;
+    }
 }
