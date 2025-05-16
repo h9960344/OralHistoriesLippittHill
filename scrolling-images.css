@@ -184,6 +184,7 @@
 @media (max-width: 768px) {
     main {
         flex-direction: column-reverse;
+        overflow-x: hidden;
     }
     
     #text-panel {
