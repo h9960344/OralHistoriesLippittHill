@@ -353,7 +353,6 @@ input:checked + .toggle-slider:before {
     /* Base layout fixes */
     main {
         flex-direction: column-reverse;
-        height: auto;
         position: relative;
     }
     /* This targets the container for both toggle controls */
