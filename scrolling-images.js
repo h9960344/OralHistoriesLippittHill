@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Add padding to the top of text-panel to avoid menu overlap
-            document.getElementById('text-panel').style.paddingTop = '100px';
+            document.getElementById('text-panel').style.paddingTop = '0px';
         } else {
             // Desktop layout
             const headerHeight = document.getElementById('site-header')?.offsetHeight || 0;

@@ -146,6 +146,40 @@
     color: #ffffff;
 }
 
+/* Mobile inline images */
+.mobile-image-container {
+    display: none; /* Hidden by default on desktop */
+    width: 110vw; /* Full viewport width */
+    margin: 30px 0;
+    position: relative;
+    left: 40%; /* Position from center */
+    right: 50%;
+    margin-left: -50vw; /* Negative margin to extend past the container */
+    margin-right: -50vw;
+    text-align: center;
+}
+
+.mobile-image-container img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    border-radius: 0; /* Remove border radius for full-bleed effect */
+    box-shadow: none; /* Optional: Remove shadow for cleaner full-bleed look */
+}
+
+.mobile-image-caption {
+    font-size: 14px;
+    color: #303030;
+    font-family: 'Catalogue', sans-serif;
+    text-align: center;
+    padding: 12px 5px;
+    max-width: 73%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    position: relative;
+    top: -5px; /* Slightly overlap with the bottom of the image */
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
     main {
@@ -155,7 +189,7 @@
     #text-panel {
         position: relative;
         width: 100%;
-        padding-top: 100px;
+        padding-top: 0px;
     }
     
     #image-container {
@@ -193,5 +227,25 @@
         border-top: none;
         margin-top: 0;
         z-index: 1000;
+    }
+        .mobile-image-container {
+        display: block;
+    }
+    
+    /* Additional adjustments to your existing mobile styles */
+    #image-container {
+        display: none !important; /* Force hide the desktop image panel */
+    }
+    
+    #text-panel {
+        width: 100%;
+        border-right: none;
+        padding: 15px;
+        margin-top: -230px;
+    }
+    
+    .text-section {
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 }
