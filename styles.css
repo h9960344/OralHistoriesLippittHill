@@ -437,7 +437,6 @@ input:checked + .toggle-slider:before {
         position: relative;
         width: 100%;
         height: auto;
-        min-height: 100vh;
         left: auto;
         top: auto;
         border-right: none;
