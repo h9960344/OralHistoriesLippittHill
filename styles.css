@@ -90,8 +90,7 @@ main {
 #info-content h2 {
     /* margin-bottom: 1rem; */
     color: #303030;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 24px;
 }
 
 /* Regular paragraph styling for landing page */
@@ -401,7 +400,6 @@ input:checked + .toggle-slider:before {
     /* margin-bottom: 1rem; */
     color: #303030;
     font-size: 20px;
-    font-weight: bold;
     line-height: 1.65rem;
 }
 
