@@ -363,7 +363,6 @@ input:checked + .toggle-slider:before {
     #map-container {
         position: relative;
         width: 100%;
-        height: 60vh; /* Fixed height using viewport height */
         right: auto;
     }
     
