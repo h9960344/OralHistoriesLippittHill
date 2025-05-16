@@ -352,7 +352,7 @@ input:checked + .toggle-slider:before {
 @media (max-width: 768px) {
     /* Base layout fixes */
     main {
-        flex-direction: column-reverse;
+        flex-direction: column;
         position: relative;
     }
     /* This targets the container for both toggle controls */
@@ -363,7 +363,7 @@ input:checked + .toggle-slider:before {
     #map-container {
         position: relative;
         width: 100%;
-        height: 40%;
+        height: 75%;
         right: auto;
     }
     
@@ -371,12 +371,12 @@ input:checked + .toggle-slider:before {
     #info-panel {
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 80%;
         left: auto;
         top: auto;
-        padding-top: 100px;
+        padding-top: 10px;
         border-right: none;
-        border-bottom: 1px solid #303030;
+        border-top: 1px solid #303030;
         overflow-y: auto;
     }
     
