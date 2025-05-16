@@ -397,6 +397,15 @@ input:checked + .toggle-slider:before {
         padding-top: 15px;
     }
     
+    #info-content h2 {
+    /* margin-bottom: 1rem; */
+    color: #303030;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.65rem;
+}
+
+
     /* Button menu positioning - Preserve desktop-like positioning */
     #bottom-menu {
         position: fixed;
