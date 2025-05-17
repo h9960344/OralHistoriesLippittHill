@@ -11,6 +11,12 @@
     font-weight: 400;
     font-style: normal;
 }
+@font-face {
+    font-family: 'FuturaMono';
+    src: url('fonts/Hershey-Noailles-Futura-Simplex-Light.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
 
 body, html {
     font-family: 'Catalogue', sans-serif;
@@ -90,6 +96,7 @@ main {
 #info-content h2 {
     /* margin-bottom: 1rem; */
     color: #303030;
+        line-height: 1.2;
     margin-right: 5%;
     font-size: 24px;
 }
@@ -103,10 +110,12 @@ main {
 }
 
 #transcript-details {
-    font-size: 14.4px;
+    font-family: 'FuturaMono';
+    font-weight: bold;
+    font-size: 18px;
     margin-left: 5%;
     margin-right: 5%;
-    line-height: 1.6;
+    line-height: 1.1;
     display: block;
     text-align: left;
 }
@@ -137,11 +146,11 @@ main {
 }
 
 .person-address {
-    font-size: .9rem;
-    font-weight: medium;
-    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'FuturaMono';
     color: #303030;
-    margin-top: .1rem;
+    margin-top: 10px;
     margin-bottom: 0.5rem;  /* Reduced from 2rem for less space */
 }
 
@@ -400,6 +409,7 @@ input:checked + .toggle-slider:before {
     #info-content h2 {
     /* margin-bottom: 1rem; */
     color: #303030;
+        line-height: 1.2;
     font-size: 20px;
     line-height: 1.65rem;
 }

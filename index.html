@@ -11,6 +11,8 @@
     <script src="https://unpkg.com/leaflet-distortableimage@0.21.7/dist/leaflet.distortableimage.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Overlay CSS -->
+    <link rel="stylesheet" href="overlay.css">
 </head>
 <body>
     <div class="container">
@@ -30,11 +32,11 @@
                         <br>
                         from The East Side (Lippitt Hill)</h2>
                     <br>
-                    <span id="transcript-details">The dialogue in this section presents excerpts of a full conversation 
+                    <span id="transcript-details" style="font-family: 'Catalogue'; font-size: 16px; line-height: 1.4; font-weight: normal;">The dialogue in this section presents excerpts of a full conversation 
                         recorded on June 29, 2017 at Rochambeau Library in Providence RI.
                     </span>
                     <br>
-                    <span id="transcript-details">
+                    <span id="transcript-details" style="margin-bottom: 0px;">
                         More Information:
                     </span>
                     <span id="transcript-details" style="text-indent: 5%;">In 2017, under a special grant from the Heritage Harbor Foundation, Stages of Freedom conducted interviews to collect oral histories from former residents of the Lippitt Hill neighborhood on the East Side of Providence, which was razed in the 1960s to make way for the University Heights apartment/shopping complex. 
@@ -43,7 +45,7 @@
                     </span>
                     <span id="transcript-details" style="text-indent: 5%;">“Remembering a Lost Black Neighborhood, An Oral History Project on Lippitt Hill in Providence” seeks former residents and others who can share their experience and knowledge of the neighborhood.
                         <br>
-                        <br>
+
                         ***
                         <br>
                         This project is not associated with Stages of Freedom or any other organization/individual.
@@ -54,9 +56,11 @@
                     </span>
                 </div>
                 <!-- Bottom menu for navigation -->
+<!-- Bottom menu for navigation -->
 <div id="bottom-menu">
     <a href="index.html" class="menu-button active">Stories</a>
     <a href="scrolling-images.html" class="menu-button">History</a>
+    <a href="#" id="about-button" class="menu-button">About</a>
 </div>
             </div>
         </main>
@@ -68,5 +72,7 @@
     
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <!-- Overlay JS -->
+    <script src="overlay.js"></script>
 </body>
 </html>

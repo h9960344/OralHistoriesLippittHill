@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Additional CSS for scrolling images page -->
     <link rel="stylesheet" href="scrolling-images.css">
+    <!-- Overlay CSS -->
+    <link rel="stylesheet" href="overlay.css">
 </head>
 <body>
     <div class="container">
@@ -24,7 +26,7 @@
                         </div>
                     <h2> Urban Renewal and Rhode Island: 
                         <br>A Complicated History</h2>
-                        <p style="border-bottom: 2px dotted #303030; margin-bottom: 0px; padding-bottom: 30px; font-size: 14.4px; margin-right: 5%;">Essay by Miguel Youngs, Public Services Assistant
+                        <p style="border-bottom: 2px dotted #303030; margin-bottom: 0px; padding-bottom: 30px; font-size: 14.4px; margin-right: 5%; font-family: 'FuturaMono'; font-size: 20px; line-height: 1.1; font-weight: bold;">Essay by Miguel Youngs, Public Services Assistant
                             Rhode Island Historical Society</p>
                     
                     <!-- Each section has an ID that corresponds to an image -->
@@ -122,7 +124,7 @@
                     <section id="section-5" class="text-section" style="border-top: 2px dotted #303030;">
                         <h3>Terms & Sources</h3>
                         <br>
-                        <p style="text-indent: -1px;">Urban Renewal: <br>  a program of land redevelopment often used to address urban decay in cities
+                        <p style="text-indent: -1px; ">Urban Renewal: <br>  a program of land redevelopment often used to address urban decay in cities
                         <br><br>Urban Decay: <br>the process by which a previously functioning city, or part of a city, falls into disrepair
                         <br><br>Racial Inequality:<br> a disparity in opportunity and treatment that occurs as a result of someone's race
                         <br><br>Dilapidation: <br>falling into disrepair
@@ -142,7 +144,7 @@
                     </section>
                     <section id="section-5" class="text-section" style="border-top: 2px dotted #303030; margin-top: 30px;">
                         <br>
-                        <p style="text-indent: -1px; text-align: left;">
+                        <p style="text-indent: -1px; text-align: left; font-family: FuturaMono; font-size: 20px; line-height: 1.1; font-weight: bold;">
                             1 <br>Antonucci. Machine Politics and Urban Renewal in Providence, Rhode Island: The Era of Mayor Joseph A. Doorley, Jr., 1965-74. (2012). History Dissertations. Paper 1. p.95
                             <br><br>2 <br>Rhode Island Black Heritage Society. The Struggle for African American Civil Rights in 20th Century Rhode Island: A Narrative Summary of People, Places, and Events. Report for the National Park Service. Providence. 2018. p.13-14
                             <br><br>3<br>Carl Antonucci. Machine Politics and Urban Renewal in Providence, Rhode Island: The Era of Mayor Joseph A. Doorley, Jr., 1965-74. (2012). History Dissertations. Paper 1. p.90-91
@@ -165,11 +167,11 @@
                         </p>
                     </section>
                 </div>
-                <!-- Navigation menu at bottom left -->
-                <div id="bottom-menu">
-                    <a href="index.html" class="menu-button">Stories</a>
-                    <a href="scrolling-images.html" class="menu-button active">History</a>
-                </div>
+            <div id="bottom-menu">
+                <a href="index.html" class="menu-button">Stories</a>
+                <a href="scrolling-images.html" class="menu-button active">History</a>
+                <a href="#" id="about-button" class="menu-button">About</a>
+            </div>
             </div>
             
             <!-- Right panel with images -->
@@ -214,5 +216,7 @@
 
     <!-- Custom JS for scrolling images -->
     <script src="scrolling-images.js"></script>
+    <!-- Overlay JS -->
+    <script src="overlay.js"></script>
 </body>
 </html>

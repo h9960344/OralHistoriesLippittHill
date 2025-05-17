@@ -85,4 +85,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial call and event listener for resize
     handleResize();
     window.addEventListener('resize', handleResize);
+    
 });
