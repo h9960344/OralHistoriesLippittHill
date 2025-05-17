@@ -357,6 +357,7 @@ input:checked + .toggle-slider:before {
     color: #ffffff;
 }
 
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     /* Base layout fixes */
@@ -435,7 +436,7 @@ input:checked + .toggle-slider:before {
     
     /* Map overlay toggle controls positioning */
     .leaflet-bottom.leaflet-right {
-        bottom: 10px;
+        bottom: 20px;
         max-width: 100%;
     }
     
@@ -494,4 +495,12 @@ input:checked + .toggle-slider:before {
     #text-content {
         padding-bottom: 60px;
     }
+  .leaflet-control-zoom {
+    display: none !important;
+  }
+  
+  /* Hide attribution/credits on mobile */
+  .leaflet-control-attribution {
+    display: none !important;
+  }
 }
