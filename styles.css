@@ -80,6 +80,7 @@ main {
     right: 0; /* Changed from left to right */
     width: 50%;
     height: 100%;
+    border-bottom: 1px solid #303030;
 }
 
 #map {
@@ -399,7 +400,7 @@ input:checked + .toggle-slider:before {
         top: auto;
         padding-top: 10px;
         border-right: none;
-        border-top: 1px solid #303030;
+        /* border-top: 1px solid #303030; */
         overflow-y: auto;
     }
     

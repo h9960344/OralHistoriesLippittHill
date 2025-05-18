@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oral Histories of Lippitt Hill - About</title>
+    <!-- Leaflet CSS - keeping for consistent styling -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Main CSS from original site -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Additional CSS for scrolling images page layout -->
+    <link rel="stylesheet" href="scrolling-images.css">
+    <style>
+        /* Additional styles to ensure proper layout */
+        #image-container {
+            position: fixed;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            display: block;
+            visibility: visible;
+        }
+        
+        #image-display {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            position: relative;
+            display: block;
+        }
+        
+        .image {
+            position: relative;
+            height: auto;
+            opacity: 1;
+            margin-bottom: 30px;
+            width: 100%;
+            display: block;
+        }
+        
+        .image img {
+            position: relative;
+            transform: none;
+            top: auto;
+            left: auto;
+            max-width: 100%;
+            max-height: none;
+            filter: grayscale(100%);
+        }
+        
+        /* Mobile inline images - hide them completely */
+        .mobile-image-container {
+            display: none;
+        }
+        
+        /* Fix for mobile menu - ensure it's centered */
+        #bottom-menu {
+            position: fixed;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+            /* Desktop position (right side) */
+            top: 20px;
+            right: 20px;
+            left: auto;
+            transform: none;
+        }
+        
+        /* Override mobile styles */
+        @media (max-width: 768px) {
+            /* Hide all image containers on mobile */
+            #image-container {
+                display: none !important;
+            }
+            
+            /* Adjust info panel to take full width */
+            #info-panel {
+                width: 100% !important;
+                height: auto !important;
+                position: relative !important;
+                padding: 20px !important;
+                padding-top: 80px !important;
+                margin-top: 0 !important;
+            }
+            
+            main {
+                flex-direction: column;
+            }
+            
+            /* Ensure content has proper spacing */
+            #info-content {
+                padding-top: 40px;
+            }
+            
+            /* Explicit mobile menu positioning */
+            #bottom-menu {
+                position: fixed !important;
+                top: 20px !important;
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%) !important;
+                width: auto !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="color-filter-overlay"></div>
+    <div class="container">
+        <main>
+            <!-- Left panel with scrollable text -->
+            <div id="info-panel">
+                <div id="info-content">
+                    <h2 style="border-bottom: 2px dotted #303030; padding-bottom: 30px;">
+                        About</h2>
+                    <br>
+                    <span id="transcript-details" style="font-family: 'Catalogue'; font-size: 16px; line-height: 1.4; font-weight: normal;">In 1959, Lippitt Hill, one of the oldest black neighborhoods in Providence — called by locals at the time "The East Side"— was slated for demolition. The result of racially motivated urban renewal, the project displaced hundreds of people, closed their businesses, and largely erased the vibrant community that once existed there. In 2017, Stages of Freedom brought together members of the community to tell stories of life on Lippitt Hill — their words can be viewed here.
+                    </span>
+                    <br>
+                    <span id="transcript-details" style="margin-bottom: 10px; ">
+                        About this Project:
+                    </span>
+                    <span id="transcript-details" style="text-indent: 5%; margin-bottom: 20px; ">This site was created to preserve and share the stories of residents from the Lippitt Hill neighborhood, providing a digital space where their voices and memories can live on. The oral histories collected here were recorded during community events in 2017 under a special grant from the Heritage Harbor Foundation. These recordings capture first-hand accounts of life in this vibrant neighborhood before it was demolished in the 1960s By connecting these stories to their physical locations on a map, we hope to give visitors a sense of the community that once thrived here, and to honor the legacy of Lippitt Hill residents whose neighborhood was lost to urban renewal.
+                    </span>
+                    <span id="transcript-details" style="margin-bottom: 10px; ">
+                        How to Use This Site:
+                    </span>
+                    <span id="transcript-details" style="text-indent: 5%; margin-bottom: 20px;">
+The Stories page displays a map with markers indicating locations where former residents lived or frequented. Click on these markers to read their personal accounts and memories of life in Lippitt Hill.
+The History page provides context about urban renewal in Providence and the specific impact it had on the Lippitt Hill neighborhood, with historical photographs that help visualize this lost community.
+
+                    </span>
+                    <span id="transcript-details" style="margin-bottom: 10px; ">
+                        Acknowledgments:
+                    </span>
+                    <span id="transcript-details" style="text-indent: 5%; ">
+This project builds upon the important work done by Stages of Freedom, who organized and conducted the original oral history interviews with former Lippitt Hill residents.
+Special thanks to the Rhode Island Historical Society for providing access to photographs and historical documents that help tell this story.
+Most importantly, we're grateful to the former residents of Lippitt Hill who shared their memories and experiences, ensuring that the story of this neighborhood will not be forgotten.
+
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+                    <span id="transcript-details" style="text-indent: 5%; ">***<br>
+                        This project is not associated with Stages of Freedom or any other organization/individual.
+                    </span>
+                </div>
+                <!-- Bottom menu for navigation -->
+                <div id="bottom-menu">
+                    <a href="index.html" class="menu-button">Stories</a>
+                    <a href="scrolling-images.html" class="menu-button">History</a>
+                    <a href="about.html" class="menu-button active">About</a>
+                </div>
+            </div>
+            
+            <!-- Right panel with scrollable images (desktop only) -->
+            <div id="image-container">
+                <div id="image-display">
+                    <!-- Stack of images that users can scroll through -->
+                    <div class="image">
+                        <img src="images/RHiX173732-reduced-scaled-1.jpeg" alt="Boy Looks at Lippitt Hill Redevelopment Construction">
+                        <div class="image-caption">Boy looking at the Lippitt Hill Redevelopment Project construction.</div>
+                    </div>
+                    
+                    <div class="image">
+                        <img src="images/RHiX173733-resized.jpeg" alt="Fox Point Residents improve their homes">
+                        <div class="image-caption">Residents of Fox Point, a neighborhood that would face similar redevelopment.</div>
+                    </div>
+                    
+                    <div class="image">
+                        <img src="images/LC-221.3-P9-L6-2.jpg" alt="Doyle Avenue School Teachers & Students">
+                        <div class="image-caption">Teachers and students at the Doyle Avenue School on Lippitt Hill in 1966.</div>
+                    </div>
+                    
+                    <div class="image">
+                        <img src="images/houses56_pro.png" alt="An armored vehicle demolishes a building in Lippitt Hill">
+                        <div class="image-caption">Demolition of buildings in the Lippitt Hill neighborhood.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Removed JavaScript that was modifying the menu styling - using pure CSS instead -->
+</body>
+</html>
