@@ -111,6 +111,7 @@ html, body {
     left: 50%;
     min-width: 100%;
     min-height: 100%;
+        filter: grayscale(100%);
 }
 
 .image-caption {
@@ -118,18 +119,17 @@ html, body {
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 8px 10px;
+    padding: 8px 15px;
     background-color: white;
-    font-size: 14px;
     z-index: 1000;
     color: #303030;
     text-align: center;
     max-width: 100%;
-    font-family: 'FuturaMono';
+    font-family: 'MonoTypewrite';
     border-radius: 5px;
     font-weight: bold;
-    font-size: 19px;
-    line-height: 1.1;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 /* Navigation */
@@ -183,6 +183,7 @@ html, body {
     max-width: none;
     border-radius: 0; /* Remove border radius for full-bleed effect */
     box-shadow: none; /* Optional: Remove shadow for cleaner full-bleed look */
+        filter: grayscale(100%);
 }
 
 .mobile-image-caption {
