@@ -1,44 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get all text sections and images
-    const sections = document.querySelectorAll('.text-section');
-    const images = document.querySelectorAll('.image');
-    
-    // Set up Intersection Observer to detect which section is in view
-    const observerOptions = {
-        root: null,
-        rootMargin: '-10% 0px -60% 0px',
-        threshold: 0
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const sectionId = entry.target.id;
-                const imageId = 'image-' + sectionId;
-                
-                // Hide all images and show the corresponding one
-                images.forEach(img => img.classList.remove('active'));
-                
-                const activeImage = document.getElementById(imageId);
-                if (activeImage) {
-                    activeImage.classList.add('active');
-                }
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all sections
-    sections.forEach(section => observer.observe(section));
-    
     // Handle mobile screens - adjust layout on resize
     function handleResize() {
         const bottomMenu = document.getElementById('bottom-menu');
         
         if (window.innerWidth <= 768) {
             // Mobile layout adjustments
-            document.getElementById('text-panel').style.height = 'auto';
-            document.getElementById('image-container').style.height = '50vh';
-            
             // Position menu at the top for mobile view
             if (bottomMenu) {
                 // Clear any existing positioning
@@ -64,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // Desktop layout
             const headerHeight = document.getElementById('site-header')?.offsetHeight || 0;
-            document.getElementById('text-panel').style.height = `calc(100% - ${headerHeight}px)`;
-            document.getElementById('image-container').style.height = `calc(100% - ${headerHeight}px)`;
-            document.getElementById('text-panel').style.top = `${headerHeight}px`;
-            document.getElementById('image-container').style.top = `${headerHeight}px`;
             document.getElementById('text-panel').style.paddingTop = '20px'; // Reset to original padding
             
             // Position for desktop view
@@ -85,5 +47,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial call and event listener for resize
     handleResize();
     window.addEventListener('resize', handleResize);
-    
 });

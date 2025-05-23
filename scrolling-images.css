@@ -6,40 +6,47 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     position: relative;
+    /* Remove height: 100% to allow natural scrolling */
 }
 
 .container {
     overflow-x: hidden;
+    /* Remove height: 100% to allow natural document flow */
 }
 
+/* Make main container use normal document flow */
+main {
+    display: flex;
+    position: relative;
+    min-height: 100vh; /* Ensure minimum height but allow expansion */
+}
 
 #text-panel {
     width: 50%;
     background-color: #f8f9fa;
-    overflow-y: auto;
+    /* Remove overflow-y: auto and height: 100% */
+    /* Remove position: absolute */
     overflow-x: hidden;
     border-right: 1px solid #303030;
     padding: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
+    position: relative; /* Changed from absolute */
+    /* Remove left: 0, top: 0, height: 100% */
 }
 
 #image-container {
-    position: fixed;
+    position: fixed; /* Keep fixed so it stays in view while scrolling */
     right: 0;
+    top: 0; /* Ensure it starts at the top */
     width: 50%;
-    height: 100%;
+    height: 100vh; /* Use viewport height */
     background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 1; /* Ensure it's above other content */
 }
 
 #image-display {
     width: 100%;
     height: 100%;
+    overflow-y: auto; /* Make it scrollable */
     position: relative;
 }
 
@@ -51,7 +58,7 @@ html, body {
 #text-content h2 {
     color: #303030;
     font-size: 24px;
-        line-height: 1.2;
+    line-height: 1.2;
     padding-bottom: 10px;
 }
 
@@ -79,39 +86,30 @@ html, body {
     color: #303030;
 }
 
-/* Image styling */
+/* Image styling - Simple stacked layout */
 .image {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative; /* Changed from absolute */
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity .5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+    height: auto; /* Changed from 100% */
+    margin-bottom: -20px; /* Remove margin between images */
+    display: block; /* Changed from flex */
     overflow: hidden;
+    /* Remove opacity and transition properties */
 }
 
-.image.active {
-    opacity: 1;
-    z-index: 1;
-}
+/* Remove .image.active styles since we're not using them anymore */
 
 .image img {
-    max-width: 140%;
-    max-height: 140%;
+    width: 100%;
+    height: auto; /* Changed from max-height: 140% */
     object-fit: cover;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-        filter: grayscale(100%);
+    display: block; /* Changed from absolute positioning */
+    position: relative; /* Changed from absolute */
+    transform: none; /* Remove transform */
+    top: auto; /* Remove absolute positioning */
+    left: auto; /* Remove absolute positioning */
+    filter: grayscale(100%);
+    /* Remove min-width and min-height */
 }
 
 .image-caption {
@@ -183,7 +181,7 @@ html, body {
     max-width: none;
     border-radius: 0; /* Remove border radius for full-bleed effect */
     box-shadow: none; /* Optional: Remove shadow for cleaner full-bleed look */
-        filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .mobile-image-caption {
@@ -204,7 +202,7 @@ html, body {
 @media (max-width: 768px) {
     main {
         flex-direction: column-reverse;
-        overflow-x: hid;
+        overflow-x: hidden;
     }
     
     #text-panel {
@@ -229,7 +227,7 @@ html, body {
     #text-content h2 {
         font-size: 20px;
         text-align: left;
-            line-height: 1.2;
+        line-height: 1.2;
         line-height: 1.65rem;
     }
     
@@ -250,7 +248,8 @@ html, body {
         margin-top: 0;
         z-index: 1000;
     }
-        .mobile-image-container {
+    
+    .mobile-image-container {
         display: block;
     }
     
